@@ -5,4 +5,5 @@ To spin up the container:
 
 To start the server:
 1. `cd server`
-2. `npm run start:dev`
+2. `yarn`
+3. `yarn start:dev`
