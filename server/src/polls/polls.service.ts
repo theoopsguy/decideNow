@@ -1,4 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import { createPollID, createUserID } from 'src/ids';
 import { PollsRepository } from './polls.repository';
 import { CreatePollFields, JoinPollFields, RejoinPollFields } from './types';
@@ -6,7 +7,22 @@ import { CreatePollFields, JoinPollFields, RejoinPollFields } from './types';
 @Injectable()
 export class PollsService {
   private readonly logger = new Logger(PollsService.name);
-  constructor(private readonly pollsRepository: PollsRepository) {}
+  constructor(
+    private readonly pollsRepository: PollsRepository,
+    private readonly jwtService: JwtService,
+  ) {}
+  getSignedString(pollID: string, userID: string, name: string) {
+    return this.jwtService.sign(
+      {
+        pollID: pollID,
+        name: name,
+      },
+      {
+        subject: userID,
+      },
+    );
+  }
+
   async createPoll(fields: CreatePollFields) {
     const pollID = createPollID();
     const userID = createUserID();
@@ -17,11 +33,19 @@ export class PollsService {
       userID,
     });
 
-    // TODO - create an accessToken based off of pollID and userID
+    this.logger.debug(
+      `Creating token string for pollID: ${createdPoll.id} and userID: ${userID}`,
+    );
+
+    const signedString = this.getSignedString(
+      createdPoll.id,
+      userID,
+      fields.name,
+    );
 
     return {
       poll: createdPoll,
-      // accessToken
+      accessToken: signedString,
     };
   }
 
@@ -34,18 +58,25 @@ export class PollsService {
 
     const joinedPoll = await this.pollsRepository.getPoll(fields.pollID);
 
-    // TODO - create access Token
+    this.logger.debug(
+      `Creating token string for pollID: ${joinedPoll.id} and userID: ${userID}`,
+    );
+
+    const signedString = this.getSignedString(
+      joinedPoll.id,
+      userID,
+      fields.name,
+    );
 
     return {
       poll: joinedPoll,
-      // accessToken: signedString,
+      accessToken: signedString,
     };
   }
 
   async rejoinPoll(fields: RejoinPollFields) {
     this.logger.debug(
-      `Rejoining poll with ID: ${fields.pollID} for 
-      user with ID: ${fields.userID} with name: ${fields.name}`,
+      `Rejoining poll with ID: ${fields.pollID} for user with ID: ${fields.userID} with name: ${fields.name}`,
     );
 
     const joinedPoll = await this.pollsRepository.addParticipant(fields);
