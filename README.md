@@ -22,7 +22,7 @@ To start the server:
   where N = total votes per participant and n = user's nth preference (choice) from 0 to N-1.
   So, for example if total votes per voter allowed is 3, using the above formula: we calculate the values of each vote of a participant, n=0, i.e. 0th vote is worth 1, n=1 vote is worth 0.6944 and n=2 vote is worth 0.2963. For instance if we have 4 voters, where if 1st voter has candidate A as the first choice, C as second and B as third, the poll results would look like:
 
-### Web Sockets authorization
+### Web Sockets authorization challenge
 
 To authorize the socket connection requests and to ensure that the event emitted is only visible to the participants of a poll, we have multiple approaches:
 
