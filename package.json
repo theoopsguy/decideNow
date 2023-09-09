@@ -6,7 +6,7 @@
   "author": "theoopsguy <theoopsguy01@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^3.0.3",
+    "prettier": "^3.0.3", 
     "@types/webpack": "^5.28.0"
   }
 }
