@@ -1,6 +1,7 @@
 import { Length, IsInt, IsString, Min, Max } from 'class-validator';
 import {
   MAX_NAME_LENGTH,
+  MAX_NOMINATION_LENGTH,
   MAX_TOPIC_LENGTH,
   MAX_VOTES_PER_VOTER,
   POLL_ID_LENGTH,
@@ -33,6 +34,6 @@ export class JoinPollDto {
 
 export class NominationDto {
   @IsString()
-  @Length(1, 100)
+  @Length(1, MAX_NOMINATION_LENGTH)
   text: string;
 }

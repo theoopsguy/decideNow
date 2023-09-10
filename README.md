@@ -26,3 +26,14 @@ The problems with this approach are:
 - Inability to Access Socket or Client: As mentioned, the allowRequest method doesn't have access to the WebSocket connection or the client object, which are typically necessary for performing authorization and filtering events based on participants. Without access to these objects, it's challenging to enforce rules specific to individual connections or clients.
 
 3. Using a middleware - Utilizing middleware functions provided by Socket.IO to handle authorization and validation logic. Middleware can intercept incoming WebSocket events and perform checks before they reach the event handlers, providing more flexibility and context. Let's use this approach.
+
+## Control Flow 
+1. Admin creates a poll.
+2. Participants join poll
+3. Participants submit nominations
+4. Admin sends "start_poll" event
+5. Participants vote
+6. admin sends "close_poll" event
+7. Server computes results
+8. Server sends computed results
+9. Participants receive results
