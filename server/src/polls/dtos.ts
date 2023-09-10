@@ -30,3 +30,9 @@ export class JoinPollDto {
   @Length(1, MAX_NAME_LENGTH)
   name: string;
 }
+
+export class NominationDto {
+  @IsString()
+  @Length(1, 100)
+  text: string;
+}
