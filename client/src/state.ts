@@ -101,10 +101,9 @@ const actions = {
 };
 
 subscribeKey(state, 'accessToken', () => {
-  if (state.accessToken && state.poll) {
+  if (state.accessToken) {
+    // setting the access token in local storage of browser
     localStorage.setItem('accessToken', state.accessToken);
-  } else {
-    localStorage.removeItem('accessToken');
   }
 });
 
