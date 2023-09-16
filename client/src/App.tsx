@@ -14,8 +14,6 @@ const App: React.FC = () => {
   const currentState = useSnapshot(state);
 
   useEffect(() => {
-    console.log('App useEffect - check token and send to proper page');
-
     actions.startLoading();
 
     const accessToken = localStorage.getItem('accessToken');
@@ -46,7 +44,6 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    console.log('App useEffect - check current participant');
     const myID = currentState.me?.id;
 
     if (

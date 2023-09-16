@@ -16,7 +16,6 @@ export const createSocketWithHandlers = ({
   state,
   actions,
 }: CreateSocketOptions): Socket => {
-  console.log(`Creating socket with accessToken: ${state.accessToken}`);
   const socket = io(socketIOUrl, {
     auth: {
       token: state.accessToken,
@@ -26,7 +25,7 @@ export const createSocketWithHandlers = ({
 
   socket.on('connect', () => {
     console.log(
-      `Connected with socket ID: ${socket.id}. UserID: ${state.me?.id} will join room ${state.poll?.id}`
+      `Connected with socket ID: ${socket.id}.`
     );
 
     actions.stopLoading();
@@ -49,7 +48,6 @@ export const createSocketWithHandlers = ({
   });
 
   socket.on('poll_updated', (poll) => {
-    console.log('event: "poll_updated" received', poll);
     actions.updatePoll(poll);
   });
 
