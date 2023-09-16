@@ -1,4 +1,4 @@
-import { Nominations, Rankings, Results } from 'common';
+import { Nominations, Rankings, Results } from '../../../common';
 
 export default (
   rankings: Rankings,
