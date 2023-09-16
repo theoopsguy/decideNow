@@ -23,6 +23,7 @@ To start the server:
   So, for example if total votes per voter allowed is 3, using the above formula: we calculate the values of each vote of a participant, n=0, i.e. 0th vote is worth 1, n=1 vote is worth 0.6944 and n=2 vote is worth 0.2963. For instance if we have 4 voters, where if 1st voter has candidate A as the first choice, C as second and B as third, the poll results would look like:
 
 - On the client side, using valtio for state management due to its simplicity. 
+- The participants get updated when our client receives the "poll_updated" event in realtime.
 
 ### Web Sockets authorization challenge
 

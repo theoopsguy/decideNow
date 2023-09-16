@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RoundResult } from 'common/poll-types';
+import { RoundResult } from '../../../../common/poll-types';
 
 type ResultCard = {
   result: DeepReadonly<RoundResult>;

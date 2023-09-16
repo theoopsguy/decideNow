@@ -1,7 +1,7 @@
 import React from 'react';
 import { MdClose } from 'react-icons/md';
 import BottomSheet, { BottemSheetProps } from './ui/BottomSheet';
-import { Participants } from 'common/poll-types';
+import { Participants } from '../../../common/poll-types';
 
 type ParticipantListProps = {
   participants?: Participants;

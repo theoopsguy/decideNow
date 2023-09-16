@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import ResultsList from '../components/ResultsList';
-import { Results } from 'common/poll-types';
+import { Results } from '../../../common/poll-types';
 
 export default {
   title: 'ResultsList',
