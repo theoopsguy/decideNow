@@ -20,6 +20,7 @@ export class SocketIOAdapter extends IoAdapter {
     const cors = {
       origin: [
         `http://localhost:${clientPort}`,
+        `https://decide-now-navy.vercel.app/`,
         new RegExp(`/^http:\/\/192\.168\.1\.([1-9]|[1-9]\d):${clientPort}$/`),
       ],
     };

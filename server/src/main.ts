@@ -15,10 +15,11 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       `http://localhost:${clientPort}`,
+      `https://decide-now-navy.vercel.app/`,
       new RegExp(`/^http:\/\/192\.168\.1\.([1-9]|[1-9]\d):${clientPort}$/`),
     ],
   });
-  app.useWebSocketAdapter(new SocketIOAdapter(app, configService))
+  app.useWebSocketAdapter(new SocketIOAdapter(app, configService));
 
   await app.listen(port);
 
