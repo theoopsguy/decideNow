@@ -9,7 +9,7 @@ import {
   AddParticipantRankingsData,
   CreatePollData,
 } from './types';
-import { Poll, Results } from '../../../common';
+import { Poll, Results } from '../poll-types';
 
 @Injectable()
 export class PollsRepository {

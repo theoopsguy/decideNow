@@ -1,4 +1,4 @@
-const baseApiUrl = `http://${import.meta.env.VITE_API_URL}`;
+const baseApiUrl = `${import.meta.env.VITE_API_URL}`;
 
 interface APIError {
   messages: string[];

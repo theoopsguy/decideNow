@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import ResultCard from '../components/ui/ResultCard';
-import { Results } from '../../../common/poll-types';
+import { Results } from '../poll-types';
 
 export default {
   title: 'ResultCard',

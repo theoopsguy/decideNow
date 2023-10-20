@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Poll } from '../../../common/poll-types';
+import { Poll } from '../poll-types';
 import { makeRequest } from '../api';
 import { actions, AppPage } from '../state';
 

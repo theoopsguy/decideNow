@@ -1,6 +1,6 @@
 import { Socket } from 'socket.io';
 import { Request } from 'express';
-import { Nomination } from '../../../common/poll-types';
+import { Nomination } from '../poll-types';
 
 /* service types */
 export type CreatePollFields = {

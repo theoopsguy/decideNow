@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MdCancel } from 'react-icons/md';
-import { Nominations } from '../../../common/poll-types';
+import { Nominations } from '../poll-types';
 import BottomSheet, { BottemSheetProps } from './ui/BottomSheet';
 
 type NominationFormProps = {

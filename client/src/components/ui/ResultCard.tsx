@@ -1,5 +1,5 @@
 import React from 'react';
-import { Results } from '../../../../common/poll-types';
+import { Results } from '../../poll-types';
 
 type ResultCard = {
   results: DeepReadonly<Results>;

@@ -1,4 +1,4 @@
-import { Nominations, Rankings, Results } from '../../../common';
+import { Nominations, Rankings, Results } from '../poll-types';
 
 export default (
   rankings: Rankings,
