@@ -18,11 +18,10 @@ export class SocketIOAdapter extends IoAdapter {
     const clientPort = parseInt(this.configService.get('CLIENT_PORT'));
 
     const cors = {
-      origin: [
-        `http://localhost:${clientPort}`,
-        `https://decide-now-navy.vercel.app/`,
-        new RegExp(`/^http:\/\/192\.168\.1\.([1-9]|[1-9]\d):${clientPort}$/`),
-      ],
+      origin: [`https://decide-now-navy.vercel.app/`],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+      methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+      preflightContinue: true,
     };
 
     this.logger.log('Configuring SocketIO server with custom CORS options');
