@@ -13,11 +13,7 @@ async function bootstrap() {
   const clientPort = parseInt(configService.get('CLIENT_PORT'));
 
   app.enableCors({
-    origin: [
-      `http://localhost:${clientPort}`,
-      `https://decide-now-navy.vercel.app/`,
-      new RegExp(`/^http:\/\/192\.168\.1\.([1-9]|[1-9]\d):${clientPort}$/`),
-    ],
+    origin: '*',
   });
   app.useWebSocketAdapter(new SocketIOAdapter(app, configService));
 
