@@ -17,26 +17,16 @@ export class SocketIOAdapter extends IoAdapter {
   createIOServer(port: number, options?: ServerOptions) {
     const clientPort = parseInt(this.configService.get('CLIENT_PORT'));
 
-    const optionsWithCORS: ServerOptions = {
-      ...options,
-      cors: {
-        origin: [
-          `http://localhost:${clientPort}`,
-          `https://decide-now-navy.vercel.app/`,
-          new RegExp(`/^http:\/\/192\.168\.1\.([1-9]|[1-9]\d):${clientPort}$/`),
-        ],
-        methods: ['GET', 'POST'],
-        allowedHeaders: [
-          'Origin',
-          'X-Requested-With',
-          'Content-Type',
-          'Accept',
-        ],
-      },
+    const cors = {
+      origin: [
+        `http://localhost:${clientPort}`,
+        `https://decide-now-navy.vercel.app/`,
+        new RegExp(`/^http:\/\/192\.168\.1\.([1-9]|[1-9]\d):${clientPort}$/`),
+      ],
     };
 
     const jwtService = this.app.get(JwtService);
-    const server: Server = super.createIOServer(port, optionsWithCORS);
+    const server: Server = super.createIOServer(port, cors);
 
     server.of('polls').use(createTokenMiddleware(jwtService, this.logger));
 
