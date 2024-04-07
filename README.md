@@ -1,4 +1,12 @@
 # DecideNow
+DecideNow allows users to create voting rooms, share room codes, add nominations, and conduct real-time voting sessions. Utilizing socket connections, it ensures instant updates for all participants. Simplify decision-making processes in groups with this efficient and interactive tool!
+
+You can try this app out [here](https://decide-now.tech)
+
+Demo:
+
+https://github.com/theoopsguy/decideNow/assets/83968619/8a025e89-ad3b-4067-a445-2a5e031399e4
+
 
 ## Project Setup
 
@@ -21,6 +29,8 @@ To start the server:
   value of nth vote is determined using = ((N - 0.5\*n)/N)^(n+1)
   where N = total votes per participant and n = user's nth preference (choice) from 0 to N-1.
   So, for example if total votes per voter allowed is 3, using the above formula: we calculate the values of each vote of a participant, n=0, i.e. 0th vote is worth 1, n=1 vote is worth 0.6944 and n=2 vote is worth 0.2963. For instance if we have 4 voters, where if 1st voter has candidate A as the first choice, C as second and B as third, the poll results would look like:
+  <img width="635" alt="image" src="https://github.com/theoopsguy/decideNow/assets/83968619/10c14a3f-a65e-4b81-b19b-728ce0e4855f">
+
 
 - On the client side, using valtio for state management due to its simplicity. 
 - The participants get updated when our client receives the "poll_updated" event in realtime.
